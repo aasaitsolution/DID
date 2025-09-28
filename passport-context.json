@@ -5,7 +5,7 @@
     "type": "@type",
     "schema": "https://schema.org/",
     "PassportApplicationCredential": {
-      "@id": "https://yourusername.github.io/DID/passport-context.json#PassportApplicationCredential"
+      "@id": "https://aasaitsolution.github.io/DID/passport-context.json#PassportApplicationCredential"
     },
     "sub_id": "schema:identifier",
     "application_number": "schema:identifier",
