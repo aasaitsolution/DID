@@ -7,16 +7,16 @@
     "PassportApplicationCredential": {
       "@id": "https://aasaitsolution.github.io/DID/passport-context.json#PassportApplicationCredential"
     },
-    "sub_id": "schema:identifier",
-    "application_number": "schema:identifier",
-    "service_type": "schema:serviceType",
-    "nic_number": "schema:nationalInsuranceNumber",
+    "sub_id": "schema:Number",
+    "application_number": "schema:Text",
+    "service_type": "schema:Text",
+    "nic_number": "schema:Text",
     "full_name": "schema:name",
     "birth_date": "schema:birthDate",
     "gender": "schema:gender",
     "mobile_number": "schema:telephone",
     "email_address": "schema:email",
-    "district": "schema:addressRegion",
+    "district": "schema:addressLocality",
     "status": "schema:Text"
   }
 }
