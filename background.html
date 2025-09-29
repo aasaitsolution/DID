@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+            padding: 20px;
+        }
+        
+        .background-container {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1e40af 100%);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        /* Passport stamp watermarks */
+        .stamp {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 3px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.06);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transform: rotate(-15deg);
+        }
+        
+        .stamp-1 { top: 10%; left: 10%; }
+        .stamp-2 { top: 40%; right: 5%; transform: rotate(20deg); }
+        .stamp-3 { bottom: 20%; left: 15%; transform: rotate(-25deg); }
+        
+        /* Geometric pattern overlay */
+        .pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
+        }
+        
+        /* Globe watermark */
+        .globe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .globe::before,
+        .globe::after {
+            content: '';
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .globe::before {
+            width: 100%;
+            height: 50%;
+            top: 25%;
+            border-radius: 50%;
+        }
+        
+        .globe::after {
+            width: 50%;
+            height: 100%;
+            left: 25%;
+            border-radius: 50%;
+        }
+        
+        /* Microprint effect */
+        .microprint {
+            position: absolute;
+            width: 100%;
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.04);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .microprint-1 {
+            top: 50px;
+            animation: scroll-left 60s linear infinite;
+        }
+        
+        .microprint-2 {
+            bottom: 50px;
+            animation: scroll-right 70s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        @keyframes scroll-right {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+        
+        /* Security guilloché pattern */
+        .guilloche {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .guilloche svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Emblem watermark */
+        .emblem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.03;
+        }
+        
+        .emblem-circle {
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+        }
+        
+        /* Corner decorations */
+        .corner {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .corner-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .corner-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+        .corner-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+        
+
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <!-- Geometric pattern -->
+        <div class="pattern"></div>
+        
+        <!-- Globe watermark -->
+        <div class="globe"></div>
+        
+        <!-- Passport stamps -->
+        <div class="stamp stamp-1">
+            <div>Immigration<br>Department</div>
+        </div>
+        <div class="stamp stamp-2">
+            <div>Official<br>Document</div>
+        </div>
+        <div class="stamp stamp-3">
+            <div>Authorized<br>Credential</div>
+        </div>
+        
+        <!-- Microprint -->
+        <div class="microprint microprint-1">
+            Department of Immigration & Emigration • Passport Application • Official Document • Department of Immigration & Emigration • Passport Application • Official Document • 
+        </div>
+        <div class="microprint microprint-2">
+            Verified Credential • Secure Document • Government Issued • Verified Credential • Secure Document • Government Issued • 
+        </div>
+        
+        <!-- Guilloché pattern -->
+        <div class="guilloche">
+            <svg viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="waves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="white" stroke-width="0.5"/>
+                        <path d="M0,60 Q25,35 50,60 T100,60" fill="none" stroke="white" stroke-width="0.5"/>
+                        <path d="M0,70 Q25,45 50,70 T100,70" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#waves)"/>
+            </svg>
+        </div>
+        
+        <!-- Emblem -->
+        <div class="emblem">
+            <svg viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="180" class="emblem-circle"/>
+                <circle cx="200" cy="200" r="150" class="emblem-circle"/>
+                <circle cx="200" cy="200" r="120" class="emblem-circle"/>
+                <path d="M200,80 L220,160 L280,140 L240,200 L300,240 L220,220 L200,300 L180,220 L100,240 L160,200 L120,140 L180,160 Z" 
+                      fill="none" stroke="white" stroke-width="2" class="emblem-circle"/>
+            </svg>
+        </div>
+        
+        <!-- Corner decorations -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+    </div>
+</body>
+</html>
